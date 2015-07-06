@@ -42,6 +42,7 @@ gem 'modernizr-rails'
 group :development do
   gem 'nokogiri'
   gem 'curb'
+  gem 'mechanize'
 end
 
 group :development, :test do

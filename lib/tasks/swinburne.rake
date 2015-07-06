@@ -4,6 +4,7 @@
 require 'curb'
 require 'nokogiri'
 require 'active_support'
+require 'uri'
 
 SWINBURNE_PATH = File.expand_path('./lib/assets/swinburne.xml')
 
@@ -20,6 +21,16 @@ def load_file
   @doc.remove_namespaces!
 end
 
+def parse_url(url)
+  uri = URI(url)
+  "#{uri.scheme}://#{uri.host}#{uri.path}"
+end
+
+def url_name(url)
+  uri = URI(url)
+  uri.path
+end
+
 namespace :convert do
 
   desc 'Generate poems from XML'
@@ -27,18 +38,50 @@ namespace :convert do
     check_file
     load_file
 
+    @available_images = Dir['./public/assets/images/*']
+
     Poem.create(title: 'Front')
 
     @doc.xpath('/TEI/text/body/div//head[@type="poem"]').each do |poem|
       cleaned_title = poem.text.strip.gsub('                    ', '').gsub(/[.\*]/i, '').humanize.titleize #ugh
       puts "Adding \"#{cleaned_title}\""
+      image = @available_images.sample
+
       Poem.create(
-        title: cleaned_title
+        title: cleaned_title,
+        image: File.basename(image)
       )
+      @available_images.delete(image)
     end
 
     Poem.create(title: 'Back')
 
+  end
+
+  desc 'Get dummy images from unsplash.com'
+  task :images => :environment do
+    base = 'https://unsplash.com'
+    a = Mechanize.new
+    page = a.get(base)
+    counter = 0
+
+    loop do
+      page.images.each do |image|
+        url = parse_url(image.src) unless image.src.include? '.svg'
+        a.get(url).save File.expand_path("public/assets/images/#{url_name(image.src)}.jpg") unless image.src.include? '.svg'
+      end
+
+      break unless (counter == 8 || link = page.link_with(:text => 'Next →'))
+      page = link.click
+      puts counter
+      counter += 1
+
+    end
+    #a.get(base) do |page|
+      #page.images.each do |image|
+        #puts parse_url(image.src) unless image.src.include? '.svg'
+      #end
+    #end
   end
 end
 
