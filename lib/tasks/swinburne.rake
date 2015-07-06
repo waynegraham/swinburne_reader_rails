@@ -7,7 +7,7 @@ require 'active_support'
 
 SWINBURNE_PATH = File.expand_path('./lib/assets/swinburne.xml')
 
-task :reset => ['db:reset']
+task :reset => ['db:reset', 'db:migrate']
 
 def check_file
   unless File.exist?(SWINBURNE_PATH)
@@ -27,15 +27,17 @@ namespace :convert do
     check_file
     load_file
 
+    Poem.create(title: 'Front')
+
     @doc.xpath('/TEI/text/body/div//head[@type="poem"]').each do |poem|
       cleaned_title = poem.text.strip.gsub('                    ', '').gsub(/[.\*]/i, '').humanize.titleize #ugh
       puts "Adding \"#{cleaned_title}\""
-      
       Poem.create(
-        title: cleaned_title,
-        slug: cleaned_title.downcase.gsub(' ', '-')
+        title: cleaned_title
       )
     end
+
+    Poem.create(title: 'Back')
 
   end
 end
