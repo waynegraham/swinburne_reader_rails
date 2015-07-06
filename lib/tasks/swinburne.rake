@@ -2,8 +2,42 @@
 # Tasks for converting TEI XML
 
 require 'curb'
+require 'nokogiri'
+require 'active_support'
+
+SWINBURNE_PATH = File.expand_path('./lib/assets/swinburne.xml')
+
+task :reset => ['db:reset']
+
+def check_file
+  unless File.exist?(SWINBURNE_PATH)
+    puts `rake remote:fetch`
+  end
+end
+
+def load_file
+  @doc = Nokogiri::XML(File.open(SWINBURNE_PATH))
+  @doc.remove_namespaces!
+end
 
 namespace :convert do
+
+  desc 'Generate poems from XML'
+  task :poems => :environment do
+    check_file
+    load_file
+
+    @doc.xpath('/TEI/text/body/div//head[@type="poem"]').each do |poem|
+      cleaned_title = poem.text.strip.gsub('                    ', '').gsub(/[.\*]/i, '').humanize.titleize #ugh
+      puts "Adding \"#{cleaned_title}\""
+      
+      Poem.create(
+        title: cleaned_title,
+        slug: cleaned_title.downcase.gsub(' ', '-')
+      )
+    end
+
+  end
 end
 
 namespace :remote do
@@ -25,7 +59,7 @@ namespace :remote do
     end
 
     puts "Writing to lib/assets/swinburne.xml"
-    path = File.expand_path('./lib/assets') + '/swinburne.xml'
+    path = File.expand_path('./lib/assets/swinburne.xml')
     File.open(path, 'w') {|file| file.write(response.body_str)}
 
   end

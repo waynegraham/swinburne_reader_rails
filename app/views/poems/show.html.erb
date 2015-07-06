@@ -5,5 +5,10 @@
   <%= @poem.title %>
 </p>
 
+<p>
+  <strong>Slug:</strong>
+  <%= @poem.slug %>
+</p>
+
 <%= link_to 'Edit', edit_poem_path(@poem) %> |
 <%= link_to 'Back', poems_path %>
