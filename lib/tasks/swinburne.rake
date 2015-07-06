@@ -49,7 +49,7 @@ namespace :convert do
 
       Poem.create(
         title: cleaned_title,
-        image: File.basename(image)
+        image: "/assets/images/#{File.basename(image)}"
       )
       @available_images.delete(image)
     end
