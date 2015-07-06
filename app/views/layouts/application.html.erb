@@ -1,14 +1,31 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>SwinburneReader</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Swinburne Reader</title>
+    <meta name="description" content="A modern reader for Swinburne Poetry">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag :modernizr %>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
 
-<%= yield %>
+    <%= render "shared/navigation" %>
 
-</body>
+    <%= yield %>
+
+    <%= render "shared/footer" %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </body>
 </html>

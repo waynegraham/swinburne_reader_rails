@@ -8,6 +8,7 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 5.0'
+gem "font-awesome-rails"
 
 gem "bower-rails", "~> 0.9.2"
 # Use Uglifier as compressor for JavaScript assets
@@ -27,6 +28,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'friendly_id', '~> 5.1.0'
+gem 'modernizr-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
