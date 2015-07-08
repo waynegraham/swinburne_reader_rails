@@ -14,4 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require wow.js/index.js
+//= require jquery.fittext.js/index.js
+//= require classie/index.js
+//= require cbpAnimatedHeader/index.js
 //= require_tree .

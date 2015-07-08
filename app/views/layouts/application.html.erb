@@ -6,6 +6,8 @@
     <title>Swinburne Reader</title>
     <meta name="description" content="A modern reader for Swinburne Poetry">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' %>
+    <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag :modernizr %>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -15,7 +17,7 @@
     <![endif]-->
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body id="page-top">
     <!--[if lt IE 8]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->

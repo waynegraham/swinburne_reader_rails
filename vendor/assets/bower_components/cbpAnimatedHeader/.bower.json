@@ -1,0 +1,13 @@
+{
+  "name": "cbpAnimatedHeader",
+  "_cacheHeaders": {
+    "ETag": "\"3e0b3d4b6ed96331e1b6b469641593d607294850\"",
+    "Content-Length": "888",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:3e0b3d4b6",
+  "main": "index.js",
+  "_source": "https://raw.githubusercontent.com/codrops/AnimatedHeader/master/js/cbpAnimatedHeader.js",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/codrops/AnimatedHeader/master/js/cbpAnimatedHeader.js"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "classie",
+  "_cacheHeaders": {
+    "ETag": "\"292eadb334aa6a1f7c345ce3928a0ac20adfe23e\"",
+    "Content-Length": "1973",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:292eadb33",
+  "main": "index.js",
+  "_source": "https://raw.githubusercontent.com/desandro/classie/master/classie.js",
+  "_target": "*",
+  "_originalSource": "https://raw.githubusercontent.com/desandro/classie/master/classie.js"
+}

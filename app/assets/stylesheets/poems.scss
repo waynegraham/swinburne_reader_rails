@@ -1,3 +1,112 @@
 // Place all the styles related to the poems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "variables";
+@import "mixins";
+@import "navigation";
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  @include sans-serif-font();
+}
+
+hr {
+  border-color: $theme-primary;
+  border-width: 3px;
+  max-width: 50px;
+
+  &.light {
+    border-color: white;
+  }
+}
+
+a {
+  @include transition-all;
+  color: $theme-primary;
+  &:hover,
+  &:focus {
+    color: darken($theme-primary, 10%);
+  }
+}
+
+#{headings(1,6)} {
+  @include sans-serif-font;
+}
+
+p {
+  @include sans-serif-font;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.call-to-action {
+    h2 {
+        margin: 0 auto 20px;
+    }
+}
+
+// Bootstrap Overrides
+.text-primary {
+    color: $theme-primary;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+// Button Styles
+.btn-default {
+    @include button-variant($theme-dark, white, white);
+}
+
+.btn-primary {
+    @include button-variant(white, $theme-primary, $theme-primary);
+}
+
+.btn {
+    @include sans-serif-font;
+    border: none;
+    border-radius: 300px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.btn-xl {
+    padding: 15px 30px;
+}
+
+// Extras
+// -- Highlight Color Customization
+::-moz-selection {
+    color: white;
+    text-shadow: none;
+    background: $theme-dark;
+}
+
+::selection {
+    color: white;
+    text-shadow: none;
+    background: $theme-dark;
+}
+
+img::selection {
+    color: white;
+    background: transparent;
+}
+
+img::-moz-selection {
+    color: white;
+    background: transparent;
+}
+
+body {
+    webkit-tap-highlight-color: $theme-dark;
+}
+
