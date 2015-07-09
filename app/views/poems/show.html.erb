@@ -1,4 +1,10 @@
+
 <p id="notice"><%= notice %></p>
+
+<%= link_to "Previous", @poem.prev, "data-rel" => "back" %>
+<%= link_to "Next", @poem.next "data-rel" => "next", "rel" => 'prefetch'%>
+
+<p>
 <%= image_tag @poem.image %>
 </p>
 <p>
@@ -11,5 +17,4 @@
   <%= @poem.slug %>
 </p>
 
-<%= link_to 'Edit', edit_poem_path(@poem) %> |
 <%= link_to 'Back', poems_path %>
