@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706190830) do
+ActiveRecord::Schema.define(version: 20150710143000) do
 
   create_table "poems", force: :cascade do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150706190830) do
     t.datetime "updated_at", null: false
     t.string   "slug"
     t.string   "image"
+    t.text     "content"
   end
 
   add_index "poems", ["slug"], name: "index_poems_on_slug"

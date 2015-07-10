@@ -6,6 +6,63 @@
 @import "mixins";
 @import "navigation";
 
+
+
+/*Styles for poems*/
+
+/*Formatting for poems*/
+.center {text-align: center;}
+.right {text-align: right;}
+.justify {text-align: justify;}
+.printer {}
+
+.small { font-size: $font-size-small; }
+.large { font-size: $font-size-large; }
+
+
+p.ti-1 { text-indent: 1.5em; }
+
+.ti-2 {padding-left: 3em;}
+.ti-3 {padding-left: 4em;}
+
+/*Font rendering*/
+.sc { font-variant: small-caps; }
+.bold {font-weight: bold; }
+
+.pb {display: none;}
+
+/*Poems*/
+.linegroup {
+
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+
+  p {
+    line-height: .8em;
+  }
+
+}
+
+span.readings {
+  display: none;
+  .witness {
+    disply: none; /*for now; need to handle this in js*/
+  }
+}
+
+
+/*Title page*/
+.title-page {
+  text-align: center;
+}
+.doc-title {font-size: $font-size-large;}
+.title-part {}
+.byline {}
+.doc-author {}
+.doc-imprint {}
+
+
+
 html, body {
   height: 100%;
   width: 100%;
@@ -46,67 +103,67 @@ p {
 }
 
 .call-to-action {
-    h2 {
-        margin: 0 auto 20px;
-    }
+  h2 {
+    margin: 0 auto 20px;
+  }
 }
 
 // Bootstrap Overrides
 .text-primary {
-    color: $theme-primary;
+  color: $theme-primary;
 }
 
 .no-gutter > [class*='col-'] {
-    padding-right:0;
-    padding-left:0;
+  padding-right:0;
+  padding-left:0;
 }
 
 // Button Styles
 .btn-default {
-    @include button-variant($theme-dark, white, white);
+  @include button-variant($theme-dark, white, white);
 }
 
 .btn-primary {
-    @include button-variant(white, $theme-primary, $theme-primary);
+  @include button-variant(white, $theme-primary, $theme-primary);
 }
 
 .btn {
-    @include sans-serif-font;
-    border: none;
-    border-radius: 300px;
-    font-weight: 700;
-    text-transform: uppercase;
+  @include sans-serif-font;
+  border: none;
+  border-radius: 300px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .btn-xl {
-    padding: 15px 30px;
+  padding: 15px 30px;
 }
 
 // Extras
 // -- Highlight Color Customization
 ::-moz-selection {
-    color: white;
-    text-shadow: none;
-    background: $theme-dark;
+  color: white;
+  text-shadow: none;
+  background: $theme-dark;
 }
 
 ::selection {
-    color: white;
-    text-shadow: none;
-    background: $theme-dark;
+  color: white;
+  text-shadow: none;
+  background: $theme-dark;
 }
 
 img::selection {
-    color: white;
-    background: transparent;
+  color: white;
+  background: transparent;
 }
 
 img::-moz-selection {
-    color: white;
-    background: transparent;
+  color: white;
+  background: transparent;
 }
 
 body {
-    webkit-tap-highlight-color: $theme-dark;
+  webkit-tap-highlight-color: $theme-dark;
 }
 

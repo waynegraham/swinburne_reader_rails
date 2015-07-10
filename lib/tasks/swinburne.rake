@@ -31,30 +31,56 @@ def url_name(url)
   uri.path
 end
 
+def poem_helper(title = nil, node)
+  image = @available_images.sample
+  xml = Nokogiri::XML(node)
+
+  if title.nil?
+    title = '' # parse from node
+  end
+
+  puts "Adding #{title}"
+
+  Poem.create(
+    title: title,
+    image: image.gsub('./public', ''),
+    content: @xslt.transform(node).to_html
+  )
+  @available_images.delete(image)
+
+end
+
+def clean_title(string)
+  string.strip.gsub('                    ', '').gsub(/[.\*]/i, '').humanize.titleize
+end
+
 namespace :convert do
 
   desc 'Generate poems from XML'
-  task :poems => :environment do
+  task :poems => :reset do
     check_file
     load_file
 
     @available_images = Dir['./public/assets/images/*']
+    @xslt = Nokogiri::XSLT(File.read(File.expand_path('./lib/assets/poems.xsl')))
 
-    Poem.create(title: 'Front')
+    # special case
+    front_node = Nokogiri::XML(@doc.xpath('/TEI/text/front').to_xml)
+    poem_helper('Front', front_node)
 
-    @doc.xpath('/TEI/text/body/div//head[@type="poem"]').each do |poem|
-      cleaned_title = poem.text.strip.gsub('                    ', '').gsub(/[.\*]/i, '').humanize.titleize #ugh
-      puts "Adding \"#{cleaned_title}\""
-      image = @available_images.sample
-
-      Poem.create(
-        title: cleaned_title,
-        image: "/assets/images/#{File.basename(image)}"
-      )
-      @available_images.delete(image)
+    # adds each poem
+    @doc.xpath('/TEI/text/body/div[@type="poem"]').each do |poem|
+      title = poem.at('div//head[@type="poem"]')
+      unless title.nil?
+        scrubbed_title = clean_title(title.content)
+        node = Nokogiri::XML(poem.to_xml)
+        poem_helper(scrubbed_title, node)
+      end
     end
 
-    Poem.create(title: 'Back')
+    # special case back
+    back_node = Nokogiri::XML(@doc.xpath('/TEI/text/back').to_xml)
+    poem_helper('Back', back_node)
 
   end
 
@@ -78,9 +104,9 @@ namespace :convert do
 
     end
     #a.get(base) do |page|
-      #page.images.each do |image|
-        #puts parse_url(image.src) unless image.src.include? '.svg'
-      #end
+    #page.images.each do |image|
+    #puts parse_url(image.src) unless image.src.include? '.svg'
+    #end
     #end
   end
 end
