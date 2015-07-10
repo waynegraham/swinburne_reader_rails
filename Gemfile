@@ -43,6 +43,8 @@ group :development do
   gem 'nokogiri'
   gem 'curb'
   gem 'mechanize'
+  gem 'guard-livereload', '~> 2.4', require: false
+  gem "rack-livereload", require: false
 end
 
 group :development, :test do
