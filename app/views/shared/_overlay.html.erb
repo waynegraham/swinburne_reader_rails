@@ -1,0 +1,20 @@
+<p>show info: <%= cookies['showInfo'] %></p>
+
+<% unless cookies["showInfo"] %>
+<div id="overlay" class="overlay">
+  <div class="info">
+    <h2>Interactions</h2>
+    <span class="info-drag">Drag Sliders</span>
+    <span class="info-keys">User Arrows</span>
+    <span class="info-switch">Menu</span>
+    <button>Got It!</button>
+  </div>
+</div>
+<% end %>
+
+
+<header id="header" class="swinburne-header">
+  <h1>Swinburne Reader</h1>
+  <span class="message">This mobile version does not have a switch</span>
+  <button class="slider-switch">Switch View</button>
+</header>

@@ -1,15 +1,5 @@
-<header>
-  <div class="header-content">
-    <div class="header-content-inner">
-      <h1>StaticPages#home</h1>
-      <p>Find me in app/views/static_pages/home.html.erb</p>
-      <p><button id="showMenu">Show Menu</button></p>
-    </div>
-  </div>
-</header>
-
 <nav class="outer-nav left vertical">
   <% @poems.each do |poem| %>
-    <p><%= link_to poem.title, poem, :class => 'icon-home' %></p>
+    <p><%= link_to poem.title, poem, :class => 'fa fa-home' %></p>
   <% end %>
 </nav>
