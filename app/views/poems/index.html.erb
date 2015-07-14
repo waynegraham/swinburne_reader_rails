@@ -1,8 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+			<header id="header" class="codrops-header">
+				<h1>Swinburne Reader</h1>
+				<span class="message">This mobile version does not have the switch</span>
+				<button class="slider-switch">Switch view</button>
+			</header>
+			<div id="overlay" class="overlay">
+				<div class="info">
+					<h2>Swinburne Interactions</h2>
+					<span class="info-drag">Drag Sliders</span>
+					<span class="info-keys">Use Arrows</span>
+					<span class="info-switch">Switch view</span>
+					<button>Got it!</button>
+				</div>
+			</div>
+			<div id="slideshow" class="dragslider">
+				<section class="img-dragger img-dragger-large dragdealer">
+          <div class="handle">
+            <% @poems.each do |poem| %>
+              <div class="slide" data-content="content-<%= poem.id%>">
+                <div class="img-wrap"><%= image_tag(poem.image, alt: poem.title)  %></div>
+                <h2><%= poem.title %><%#= link_to poem.title, poem %><span>foo</span></h2>
+                <button class="content-switch">Read more</button>
+              </div>
+            <% end %>
+          </div>
+				</section><!-- /img-dragger-->
+				<!-- Content section -->
+        <section class="pages">
+          <% @poems.each do |poem| %>
+            <div class="content" data-content="content-1">
+              <h2><%= poem.title %></h2>
+              <%= poem.content.html_safe %>
+					  </div>
 
-<h1>Ballads and Poems</h1>
+          <% end %>
+				</section>
+			</div>
+</div><!-- /container -->
 
-<% @poems.each do |poem| %>
-  <p><%= link_to poem.title, poem %></p>
-<% end %>
 

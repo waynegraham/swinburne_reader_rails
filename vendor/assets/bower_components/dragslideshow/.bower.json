@@ -1,0 +1,13 @@
+{
+  "name": "dragslideshow",
+  "homepage": "https://github.com/codrops/DraggableDualViewSlideshow",
+  "_release": "041ee7c871",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "041ee7c8717fa75b423321110477634e2955b3a2"
+  },
+  "_source": "https://github.com/codrops/DraggableDualViewSlideshow.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/codrops/DraggableDualViewSlideshow.git"
+}

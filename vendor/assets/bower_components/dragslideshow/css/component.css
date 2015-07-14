@@ -1,13 +1,13 @@
-/*@font-face {*/
-	/*font-family: 'feathericons';*/
-	/*src:url('../fonts/feathericons/feathericons.eot?2h4ajg');*/
-	/*src:url('../fonts/feathericons/feathericons.eot?#iefix2h4ajg') format('embedded-opentype'),*/
-		/*url('../fonts/feathericons/feathericons.woff?2h4ajg') format('woff'),*/
-		/*url('../fonts/feathericons/feathericons.ttf?2h4ajg') format('truetype'),*/
-		/*url('../fonts/feathericons/feathericons.svg?2h4ajg#feathericons') format('svg');*/
-	/*font-weight: normal;*/
-	/*font-style: normal;*/
-/*}*/
+@font-face {
+	font-family: 'feathericons';
+	src:url('../fonts/feathericons/feathericons.eot?2h4ajg');
+	src:url('../fonts/feathericons/feathericons.eot?#iefix2h4ajg') format('embedded-opentype'),
+		url('../fonts/feathericons/feathericons.woff?2h4ajg') format('woff'),
+		url('../fonts/feathericons/feathericons.ttf?2h4ajg') format('truetype'),
+		url('../fonts/feathericons/feathericons.svg?2h4ajg#feathericons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
 html, 
 body,
@@ -68,7 +68,7 @@ button.slider-switch {
 	color: transparent;
 	position: relative;
 	border: none;
-	background: url(asset-path('switchmin.svg')) no-repeat center center;
+	background: url(../img/switchmin.svg) no-repeat center center;
 	background-size: 90%;
 	float: right;
 	outline: none;
@@ -84,7 +84,7 @@ button.slider-switch {
 }
 
 button.slider-switch.view-maxi {
-	background-image: url(asset-path('switchmax.svg'))
+	background-image: url(../img/switchmax.svg)
 }
 
 button.slider-switch:hover {
@@ -105,6 +105,8 @@ button.slider-switch:hover {
 	left: 50%;
 	-webkit-transform: translate3d(-50%,-50%,0);
 	transform: translate3d(-50%,-50%,0);
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
 }
 
 .js .img-dragger-large {
@@ -274,8 +276,8 @@ button.content-switch:hover {
 }
 
 button.content-switch::before {
-	/*content: '\e097';*/
-	/*font-family: 'feathericons';*/
+	content: '\e097';
+	font-family: 'feathericons';
 	speak: none;
 	position: absolute;
 	width: 100%;
@@ -454,4 +456,3 @@ button.content-switch::before {
 		display: none;
 	}
 }
-

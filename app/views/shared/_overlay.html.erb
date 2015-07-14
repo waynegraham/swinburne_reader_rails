@@ -1,4 +1,8 @@
-<p>show info: <%= cookies['showInfo'] %></p>
+<header id="header" class="codrops-header">
+  <h1>Swinburne Reader</h1>
+  <span class="message">This mobile version does not have a switch</span>
+  <button class="slider-switch">Switch View</button>
+</header>
 
 <% unless cookies["showInfo"] %>
 <div id="overlay" class="overlay">
@@ -12,9 +16,3 @@
 </div>
 <% end %>
 
-
-<header id="header" class="swinburne-header">
-  <h1>Swinburne Reader</h1>
-  <span class="message">This mobile version does not have a switch</span>
-  <button class="slider-switch">Switch View</button>
-</header>

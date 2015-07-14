@@ -11,14 +11,22 @@
  * file per style scope.
  *
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+
+/*vendor*/
+/*@import "bootstrap-sprockets";*/
+/*@import "bootstrap";*/
 @import "font-awesome";
-@import "variables";
-@import "mixins";
-@import "overlay";
+/*@import "animate/index";*/
+@import "dragdealer/src/dragdealer";
+
+/*local*/
+/*@import "variables";*/
+/*@import "mixins";*/
+@import "demo";
+@import "component";
+/*@import "overlay";*/
+/*@import "toc";*/
 @import "poems";
-/*
- *= require "animate/index.css"
- *= require "dragdealer/src/dragdealer.css"
- */
+
+
+
