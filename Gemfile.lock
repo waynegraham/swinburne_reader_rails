@@ -124,6 +124,7 @@ GEM
     minitest (5.7.0)
     modernizr-rails (2.7.1)
     multi_json (1.11.2)
+    mysql2 (0.3.18)
     nenv (0.2.0)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
@@ -133,6 +134,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     ntlm-http (0.1.1)
+    pg (0.18.2)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -227,7 +229,9 @@ DEPENDENCIES
   jquery-rails
   mechanize
   modernizr-rails
+  mysql2
   nokogiri
+  pg
   rack-livereload
   rails (= 4.2.2)
   sass-rails (~> 5.0)
