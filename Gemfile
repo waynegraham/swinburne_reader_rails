@@ -45,11 +45,14 @@ gem 'modernizr-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development do
-  gem 'sqlite3'
+group :production, :development do
   gem 'nokogiri'
   gem 'curb'
   gem 'mechanize'
+end
+
+group :development do
+  gem 'sqlite3'
 end
 
 group :development, :test do
