@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development
 group :production, :mysql do
   gem 'mysql2'
 end
@@ -47,11 +46,10 @@ gem 'modernizr-rails'
 # gem 'capistrano-rails', group: :development
 
 group :development do
+  gem 'sqlite3'
   gem 'nokogiri'
   gem 'curb'
   gem 'mechanize'
-  gem 'guard-livereload', '~> 2.4', require: false
-  gem "rack-livereload", require: false
 end
 
 group :development, :test do
