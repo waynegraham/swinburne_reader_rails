@@ -68,7 +68,8 @@ button.slider-switch {
 	color: transparent;
 	position: relative;
 	border: none;
-	background: url(asset-path('switchmin.svg')) no-repeat center center;
+	background: url(asset-path('bars.svg')) no-repeat center center;
+	/*background: url(asset-path('switchmin.svg')) no-repeat center center;*/
 	background-size: 90%;
 	float: right;
 	outline: none;
@@ -84,7 +85,8 @@ button.slider-switch {
 }
 
 button.slider-switch.view-maxi {
-	background-image: url(asset-path('switchmax.svg'))
+	background-image: url(asset-path('bars.svg'))
+	/*background-image: url(asset-path('switchmax.svg'))*/
 }
 
 button.slider-switch:hover {
