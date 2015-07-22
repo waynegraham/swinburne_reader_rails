@@ -64,6 +64,16 @@ namespace :convert do
     @available_images = Dir['./public/assets/images/*']
     @xslt = Nokogiri::XSLT(File.read(File.expand_path('./lib/assets/poems.xsl')))
 
+    title_page_image = @available_images.sample
+
+    # really special case
+    Poem.create(
+      title: 'Ballads and Poems <span>Algernon Charles Swinburne</span>',
+      image: title_page_image.gsub('./public', ''),
+      content: ''
+    )
+    @available_images.delete(title_page_image)
+
     # special case
     front_node = Nokogiri::XML(@doc.xpath('/TEI/text/front').to_xml)
     poem_helper('Front', front_node)

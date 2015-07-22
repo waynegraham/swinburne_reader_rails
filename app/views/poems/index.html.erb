@@ -19,7 +19,7 @@
             <% @poems.each do |poem| %>
               <div class="slide" data-content="content-<%= poem.id%>">
                 <div class="img-wrap"><%= image_tag(poem.image, alt: poem.title)  %></div>
-                <h2><%= poem.title %><%#= link_to poem.title, poem %></h2>
+                <h2><%= poem.title.html_safe %><%#= link_to poem.title, poem %></h2>
                 <button class="content-switch">Read more</button>
               </div>
             <% end %>
@@ -29,7 +29,7 @@
         <section class="pages">
           <% @poems.each do |poem| %>
             <div class="content" data-content="content-1">
-              <h2><%= poem.title %></h2>
+              <h2><%= poem.title.html_safe %></h2>
               <%= poem.content.html_safe %>
 					  </div>
 
